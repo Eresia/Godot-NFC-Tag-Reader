@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://8hpetnfjp1f5"]
+
+[ext_resource type="Script" path="res://Scripts/nfc_manager.gd" id="1_sywhs"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="NFC Manager" type="Node" parent="." node_paths=PackedStringArray("status_debug", "data_debug")]
+script = ExtResource("1_sywhs")
+display_debug = true
+status_debug = NodePath("../Debug/Status Debug")
+data_debug = NodePath("../Debug/Data Debug")
+
+[node name="Debug" type="Node2D" parent="."]
+
+[node name="Status Debug" type="RichTextLabel" parent="Debug"]
+offset_left = 31.0
+offset_top = 44.0
+offset_right = 292.0
+offset_bottom = 618.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Status :"
+
+[node name="Data Debug" type="RichTextLabel" parent="Debug"]
+offset_left = 29.0
+offset_top = 70.0
+offset_right = 290.0
+offset_bottom = 617.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Log :"
