@@ -75,8 +75,14 @@ class Godot_NFCTagReader(godot: Godot) : GodotPlugin(godot) {
 	}
 
 	public fun onTagRead(tag : Tag) {
-		emitSignal(READ_TAG_SIGNAL.name, tag.id.toString())
-		logInfo("Read Tag : " + tag.id.toString())
+		var tagIdName : String = "";
+
+		for(byte in tag.id) {
+			tagIdName += String.format("%02X", byte);
+		}
+
+		emitSignal(READ_TAG_SIGNAL.name, tagIdName)
+		logInfo("Read Tag : $tagIdName")
 		nfcStatus = 2
 	}
 

@@ -17,7 +17,6 @@ func _exit_tree():
 
 
 class AndroidExportPlugin extends EditorExportPlugin:
-	# TODO: Update to your plugin's name.
 	var _plugin_name = "Godot_NFCTagReader"
 
 	func _supports_platform(platform):
@@ -38,6 +37,9 @@ class AndroidExportPlugin extends EditorExportPlugin:
 		#intents += "\t\t\t</intent-filter>\n\n"
 
 		#return intents
+
+	func _get_android_manifest_element_contents(platform, debug):
+		return "\t<uses-feature android:name=\"android.hardware.nfc\" android:required=\"true\" />"
 
 	func _get_android_libraries(platform, debug):
 		if debug:
